@@ -1,2 +1,2 @@
 # Twitch Anti Th0ts
-Removes all the Twitch booba streamers
+Small chrome extensiom which removes all the Twitch booba streamers
