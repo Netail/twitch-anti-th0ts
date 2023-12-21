@@ -26,7 +26,29 @@ const users = [
     "yogakaren",
     "momoflose",
     "elrincondelplacer",
-    "xoaeriel"
+    "xoaeriel",
+    "taylor_jevaux",
+    "mira",
+    "spoopykitt",
+    "olesyaliberman",
+    "lyasyaa",
+    "evaanna",
+    "blueecheetah",
+    "karna",
+    "bikiniasmr",
+    "erykahotgirl",
+    "xxlobo1",
+    "missdevon8",
+    "stephanieannlouise",
+    "adison_briana",
+    "amorandijack",
+    "jennifer_moyer",
+    "alisaa_lux",
+    "nylahwhiskers",
+    "xxlauoanxx",
+    "jessicalocaa",
+    "muscledreamvalley",
+    "parkwon115"
 ];
 
 const keywords = [
@@ -34,12 +56,17 @@ const keywords = [
     "+18",
     "sexy",
     "🔞",
-    "twerk"
+    "🍑",
+    "💦",
+    "twerk",
+    "phub",
+    "bikini",
+    "lingerie"
 ];
 
 const queries = [
     '.shelf-card__impression-wrapper',
-    '[data-target="directory-game__card_container"]',
+    '[data-a-target^="card-"]',
 ];
 
 chrome.runtime.onMessage.addListener(
@@ -53,15 +80,14 @@ const purgeTwitchers = () => {
     console.log('Purging th0ts!');
 
     users.forEach(user => {
-        window.document.querySelectorAll(`a[href="/${user}"].preview-card-image-link`).forEach(el => purgeEl(el));
+        window.document.querySelectorAll(`a[href="/${user}"][data-a-target="preview-card-image-link"]`).forEach(el => purgeEl(el));
     });
 
     keywords.forEach(keyword => {
         window.document.querySelectorAll(`h3[title*="${keyword}" i]`).forEach(el => {
-            console.log(el)
             purgeEl(el);
         })
-    })
+    });
 }
 
 const purgeEl = (el) => {
