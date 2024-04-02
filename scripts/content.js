@@ -55,7 +55,11 @@ const users = [
     "asianbunnyx",
     "foxyc1eopatra",
     "kaellyn",
-    "velvet_7"
+    "velvet_7",
+    "ladigabster",
+    "katealienqueen",
+    "victoridayneko",
+    "bubibellum"
 ];
 
 // Dynamic querying th0ts based on stream title
