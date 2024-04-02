@@ -1,3 +1,5 @@
+// List of common th0ts, filter these always out
+// Twitch just ban these people already, they keep on testing your ToS
 const users = [
     "bellaramatv",
     "laurasommaruga",
@@ -48,9 +50,15 @@ const users = [
     "xxlauoanxx",
     "jessicalocaa",
     "muscledreamvalley",
-    "parkwon115"
+    "parkwon115",
+    "meowko",
+    "asianbunnyx",
+    "foxyc1eopatra",
+    "kaellyn",
+    "velvet_7"
 ];
 
+// Dynamic querying th0ts based on stream title
 const keywords = [
     "18+",
     "+18",
@@ -61,7 +69,9 @@ const keywords = [
     "twerk",
     "phub",
     "bikini",
-    "lingerie"
+    "lingerie",
+    "hot",
+    "milf"
 ];
 
 const queries = [
@@ -77,8 +87,6 @@ chrome.runtime.onMessage.addListener(
 );
 
 const purgeTwitchers = () => {
-    console.log('Purging th0ts!');
-
     users.forEach(user => {
         window.document.querySelectorAll(`a[href="/${user}"][data-a-target="preview-card-image-link"]`).forEach(el => purgeEl(el));
     });
@@ -95,7 +103,10 @@ const purgeEl = (el) => {
         const closest = el.closest(query);
 
         if (closest) {
-            closest.remove();
+            closest.style.filter = 'blur(4px)';
+
+            const images = closest.querySelectorAll('img');
+            images.forEach(img => img.style.filter = 'blur(32px)');
         }
     });
 }
