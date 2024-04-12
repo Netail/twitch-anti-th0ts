@@ -1,10 +1,12 @@
 chrome.webRequest.onCompleted.addListener(
     (details) => {
-        try {
-            chrome.tabs.sendMessage(details.tabId, { type: "purge" });
-        } catch (err) {
-            // ignore for now
-        }
+        chrome.tabs
+            .sendMessage(details.tabId, { type: "purge" })
+            .catch((err) => {
+                if (!err.message.includes("Receiving end does not exist")) {
+                    throw err;
+                }
+            })
     },
     { urls: ["https://gql.twitch.tv/gql"] }
 );

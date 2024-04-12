@@ -59,7 +59,19 @@ const users = [
     "ladigabster",
     "katealienqueen",
     "victoridayneko",
-    "bubibellum"
+    "bubibellum",
+    "devonjenelle",
+    "xtasiaego",
+    "littleaznchat",
+    "bps1016",
+    "kristinadaniellexo",
+    "riskyfnbr_",
+    "girl_neekol",
+    "ramibyc",
+    "corvifeon_wetness",
+    "thenotreal_skybri",
+    "beju_xx",
+    "morgpie"
 ];
 
 // Dynamic querying th0ts based on stream title
@@ -74,7 +86,6 @@ const keywords = [
     "phub",
     "bikini",
     "lingerie",
-    "hot",
     "milf"
 ];
 
@@ -84,7 +95,7 @@ const queries = [
 ];
 
 chrome.runtime.onMessage.addListener(
-    (request, sender, sendResponse) => {
+    (request, _sender, _sendResponse) => {
         if (request.type === "purge")
             purgeTwitchers();
     }
@@ -98,7 +109,7 @@ const purgeTwitchers = () => {
     keywords.forEach(keyword => {
         window.document.querySelectorAll(`h3[title*="${keyword}" i]`).forEach(el => {
             purgeEl(el);
-        })
+        });
     });
 }
 
