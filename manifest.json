@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Twitch Anti Th0ts",
     "description": "Blurring Twitch Th0t Streamers",
-    "version": "1.1",
+    "version": "1.1.1",
     "icons": {
         "16": "icons/icon-16.png",
         "32": "icons/icon-32.png",
