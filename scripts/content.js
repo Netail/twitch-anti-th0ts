@@ -71,7 +71,10 @@ const users = [
     "corvifeon_wetness",
     "thenotreal_skybri",
     "beju_xx",
-    "morgpie"
+    "morgpie",
+    "faith",
+    "britneyambertv",
+    "miashanti"
 ];
 
 // Dynamic querying th0ts based on stream title
