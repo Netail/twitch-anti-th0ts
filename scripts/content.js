@@ -1,6 +1,6 @@
 // List of common th0ts, filter these always out
 // Twitch just ban these people already, they keep on testing your ToS
-const users = [
+const USERS = [
     "bellaramatv",
     "laurasommaruga",
     "lilaclove",
@@ -75,27 +75,43 @@ const users = [
     "faith",
     "britneyambertv",
     "miashanti",
-    "faith"
+    "faith",
+    "lilianasana",
+    "sammysweetly",
+    "twitchyogachannel",
+    "sparklyboo69",
+    "mistressmorticia2",
+    "yuliattv",
+    "Wyanot",
+    "youritalianwaifu",
+    "kristenlanae",
+    "dylan41bryan60",
+    "z7wwpien"
 ];
 
 // Dynamic querying th0ts based on stream title
-const keywords = [
+const KEYWORDS = [
     "18+",
     "+18",
     "sexy",
     "🔞",
     "🍑",
     "💦",
+    "👅",
     "twerk",
     "phub",
     "bikini",
     "lingerie",
-    "milf"
+    "milf",
+    "!of",
+    "hot"
 ];
 
-const queries = [
-    '.shelf-card__impression-wrapper',
-    '[data-a-target^="card-"]',
+const CONTAINER_QUERIES = [
+    // Homepage container selector
+    '[data-test-selector="shelf-card-selector"]',
+    // Category container
+    'article[class^="Layout-"]',
 ];
 
 chrome.runtime.onMessage.addListener(
@@ -106,22 +122,24 @@ chrome.runtime.onMessage.addListener(
 );
 
 const purgeTwitchers = () => {
-    users.forEach(user => {
+    USERS.forEach(user => {
         window.document.querySelectorAll(`a[href="/${user}"][data-a-target="preview-card-image-link"]`).forEach(el => purgeEl(el));
     });
 
-    keywords.forEach(keyword => {
-        window.document.querySelectorAll(`h3[title*="${keyword}" i]`).forEach(el => {
+    KEYWORDS.forEach(keyword => {
+        window.document.querySelectorAll(`h4[title*="${keyword}" i]`).forEach(el => {
             purgeEl(el);
         });
     });
 }
 
 const purgeEl = (el) => {
-    queries.forEach(query => {
+    CONTAINER_QUERIES.forEach(query => {
         const closest = el.closest(query);
 
         if (closest) {
+            // ? DEBUG style
+            // closest.style.outline = '3px dashed red';
             closest.style.filter = 'blur(4px)';
 
             const images = closest.querySelectorAll('img');
