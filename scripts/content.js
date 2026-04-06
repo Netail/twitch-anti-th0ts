@@ -74,7 +74,8 @@ const users = [
     "morgpie",
     "faith",
     "britneyambertv",
-    "miashanti"
+    "miashanti",
+    "faith"
 ];
 
 // Dynamic querying th0ts based on stream title
