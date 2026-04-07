@@ -86,7 +86,14 @@ const USERS = [
     "youritalianwaifu",
     "kristenlanae",
     "dylan41bryan60",
-    "z7wwpien"
+    "z7wwpien",
+    "lilithmochii",
+    "azuregodess",
+    "littlem1chael",
+    "seoi1016",
+    "princessmariaaaaa",
+    "castaway",
+    "aryssa614"
 ];
 
 // Dynamic querying th0ts based on stream title
