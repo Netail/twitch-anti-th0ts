@@ -93,7 +93,11 @@ const USERS = [
     "seoi1016",
     "princessmariaaaaa",
     "castaway",
-    "aryssa614"
+    "aryssa614",
+    "azra",
+    "eliza1muse",
+    "olga_mur_msk",
+    "bigbittygothic"
 ];
 
 // Dynamic querying th0ts based on stream title
