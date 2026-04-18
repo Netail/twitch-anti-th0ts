@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version (e.g., 1.2.3)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Update manifest
+        env:
+          RELEASE_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          jq '.version = "$RELEASE_VERSION"' manifest.json > tmp.json && mv tmp.json manifest.json
+
+      - name: Create commit
+        env:
+          RELEASE_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git add manifest.json
+          git commit -m "Release v$RELEASE_VERSION"
+          git push
+
+      - name: Create tag
+        env:
+          RELEASE_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git tag v$RELEASE_VERSION
+          git push --tags
+
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          FILENAME="twitch-anti-th0ts-$RELEASE_VERSION.zip"
+          zip -r "$FILENAME" icons/ src/ LICENSE manifest.json PRIVACY.md README.md
+          gh release create "v$RELEASE_VERSION" "$FILENAME" --title "v$RELEASE_VERSION" --generate-notes --latest
