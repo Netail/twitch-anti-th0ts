@@ -97,7 +97,9 @@ const USERS = [
     "azra",
     "eliza1muse",
     "olga_mur_msk",
-    "bigbittygothic"
+    "bigbittygothic",
+    "ritaglitch",
+    "kayabow"
 ];
 
 // Dynamic querying th0ts based on stream title
@@ -127,32 +129,42 @@ const CONTAINER_QUERIES = [
 
 chrome.runtime.onMessage.addListener(
     (request, _sender, _sendResponse) => {
-        if (request.type === "purge")
+        if (request.event === "purge") {
             purgeTwitchers();
+        }
     }
 );
 
-const purgeTwitchers = () => {
-    USERS.forEach(user => {
-        window.document.querySelectorAll(`a[href="/${user}"][data-a-target="preview-card-image-link"]`).forEach(el => purgeEl(el));
-    });
+const purgeTwitchers = async () => {
+    const { isDebugMode, isUsersDisabled, isKeywordsDisabled } = await chrome.storage.sync.get(
+        { isDebugMode: false, isUsersDisabled: false, isKeywordsDisabled: false },
+    );
 
-    KEYWORDS.forEach(keyword => {
-        window.document.querySelectorAll(`h4[title*="${keyword}" i]`).forEach(el => {
-            purgeEl(el);
+    if (!isUsersDisabled) {
+        USERS.forEach(user => {
+            window.document.querySelectorAll(`a[href="/${user}"][data-a-target="preview-card-image-link"]`).forEach(el => purgeEl(el, 'user', { isDebugMode }));
         });
-    });
+    }
+
+    if (!isKeywordsDisabled) {
+        KEYWORDS.forEach(keyword => {
+            window.document.querySelectorAll(`h4[title*="${keyword}" i]`).forEach(el => {
+                purgeEl(el, 'keyword', { isDebugMode });
+            });
+        });
+    }
 }
 
-const purgeEl = (el) => {
+const purgeEl = (el, type, { isDebugMode }) => {
     CONTAINER_QUERIES.forEach(query => {
         const closest = el.closest(query);
 
         if (closest) {
-            // ? DEBUG style
-            // closest.style.outline = '3px dashed red';
-            closest.style.filter = 'blur(4px)';
-
+            if (isDebugMode) {
+                closest.style.outline = `3px dashed ${type == "user" ? "red" : "blue"}`;
+            } else {
+                closest.style.filter = 'blur(4px)';
+            }
             const images = closest.querySelectorAll('img');
             images.forEach(img => img.style.filter = 'blur(32px)');
         }
