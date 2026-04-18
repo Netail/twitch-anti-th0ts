@@ -23,7 +23,7 @@ jobs:
         env:
           RELEASE_VERSION: ${{ github.event.inputs.version }}
         run: |
-          jq '.version = "env.RELEASE_VERSION"' manifest.json > tmp.json && mv tmp.json manifest.json
+          jq --arg version "$RELEASE_VERSION" '.version = $version' manifest.json > tmp.json && mv tmp.json manifest.json
 
       - name: Create commit
         env:
