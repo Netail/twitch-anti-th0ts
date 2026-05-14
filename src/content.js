@@ -99,7 +99,25 @@ const USERS = [
     "olga_mur_msk",
     "bigbittygothic",
     "ritaglitch",
-    "kayabow"
+    "kayabow",
+    "gonsabellla",
+    "ellietheempress",
+    "kaystryder",
+    "mariabagatti",
+    "ellietheempress",
+    "enotishka18",
+    "lylkae",
+    "mira_irl",
+    "mellooow_",
+    "sparklyboo69",
+    "janyxtub",
+    "neonpuddles",
+    "baedoesasmr",
+    "bunnydollxo",
+    "cincinbear",
+    "busya18plus",
+    "woojungx4",
+    "dementeliya"
 ];
 
 // Dynamic querying th0ts based on stream title
