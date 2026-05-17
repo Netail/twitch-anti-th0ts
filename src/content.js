@@ -109,7 +109,6 @@ const USERS = [
     "lylkae",
     "mira_irl",
     "mellooow_",
-    "sparklyboo69",
     "janyxtub",
     "neonpuddles",
     "baedoesasmr",
@@ -117,7 +116,16 @@ const USERS = [
     "cincinbear",
     "busya18plus",
     "woojungx4",
-    "dementeliya"
+    "dementeliya",
+    "avvaballerinaofficial",
+    "yepyeppp",
+    "linny",
+    "akuasmr",
+    "realmrsberry",
+    "itslucelf",
+    "lilyofthevalley",
+    "itsmissaly",
+    "natymoon"
 ];
 
 // Dynamic querying th0ts based on stream title
@@ -158,17 +166,17 @@ const purgeTwitchers = async () => {
         { isDebugMode: false, isUsersDisabled: false, isKeywordsDisabled: false },
     );
 
-    if (!isUsersDisabled) {
-        USERS.forEach(user => {
-            window.document.querySelectorAll(`a[href="/${user}"][data-a-target="preview-card-image-link"]`).forEach(el => purgeEl(el, 'user', { isDebugMode }));
-        });
-    }
-
     if (!isKeywordsDisabled) {
         KEYWORDS.forEach(keyword => {
             window.document.querySelectorAll(`h4[title*="${keyword}" i]`).forEach(el => {
                 purgeEl(el, 'keyword', { isDebugMode });
             });
+        });
+    }
+
+    if (!isUsersDisabled) {
+        USERS.forEach(user => {
+            window.document.querySelectorAll(`a[href="/${user}"][data-a-target="preview-card-image-link"]`).forEach(el => purgeEl(el, 'user', { isDebugMode }));
         });
     }
 }
