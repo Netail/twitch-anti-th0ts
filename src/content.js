@@ -144,7 +144,6 @@ const USERS = new Set([
     "thejadedolly",
     "h0tradio",
     "yuumi_sweet",
-    "dwersamalia",
     "jakartaswu",
     "salekreie",
     "erminailee",
@@ -166,7 +165,52 @@ const USERS = new Set([
     "scarlettthreads",
     "kiara_irl",
     "sunnyjo_",
-    "bwitwaifuu"
+    "bwitwaifuu",
+    "theavamariee",
+    "plutoprincess69",
+    "hot_ann_streamy",
+    "madera119",
+    "viberunway_24h",
+    "nikhilapex",
+    "aashhuu",
+    "fallforava",
+    "disturbhril",
+    "jasminesafrl",
+    "jakirared",
+    "ai_model767",
+    "amberhoneyasmr",
+    "lonikameow",
+    "dazelin1",
+    "malinkaa98",
+    "simoneasmrreruns",
+    "simoneasmr",
+    "ariifrostt",
+    "itsmiabrookes",
+    "itsdesireedee",
+    "kittcatt5",
+    "maligna888",
+    "chikinkween",
+    "ellie__luna",
+    "ingridpaixaoo",
+    "maryanmg",
+    "princess_peachy222",
+    "amouranth",
+    "vansessy",
+    "kierstennv",
+    "divinatta",
+    "zuhlaynuh",
+    "malek_04",
+    "homefit_94",
+    "olitry",
+    "thetailawilliams",
+    "itsprincesskeira",
+    "fitplayer94",
+    "emi_mge7",
+    "imloonaleonie",
+    "alyssasorto",
+    "dancetempt",
+    "nabatakiya",
+    "sunlithours"
 ]);
 
 // Dynamic querying th0ts based on stream title
@@ -181,13 +225,17 @@ const KEYWORDS = [
     "👅",
     "🌶️",
     "😈",
+    "🍒",
     "twerk",
     "phub",
     "bikini",
     "lingerie",
     "milf",
     "!of",
-    "hot"
+    "hot",
+    "findom",
+    "hottest",
+    "goddess"
 ];
 
 const CONTAINER_QUERIES = [
@@ -220,7 +268,12 @@ const purgeTwitchers = async () => {
 
     if (!isUsersDisabled) {
         USERS.forEach(user => {
-            window.document.querySelectorAll(`a[href="/${user}"][data-a-target="preview-card-image-link"]`).forEach(el => purgeEl(el, 'user', { isDebugMode }));
+            window.document
+                .querySelectorAll(
+                    `a[href="/${user}"][data-a-target="preview-card-image-link"], 
+                    a[href="/${user}"][data-a-target="preview-card-channel-link"]`
+                )
+                .forEach(el => purgeEl(el, 'user', { isDebugMode }));
         });
     }
 }
