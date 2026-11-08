@@ -1,6 +1,6 @@
 // List of common th0ts, filter these always out
 // Twitch just ban these people already, they keep on testing your ToS
-const USERS = [
+const USERS = new Set([
     "bellaramatv",
     "laurasommaruga",
     "lilaclove",
@@ -154,18 +154,33 @@ const USERS = [
     "aquaivy_asmr",
     "asmr_kotya",
     "bonnyyfox",
-    "baianinha"
-];
+    "baianinha",
+    "daintywilderasmr",
+    "nicolepeachy",
+    "paichyu",
+    "ceaservibes",
+    "katanah",
+    "princesslilicat",
+    "vikibenz",
+    "doiiiuk",
+    "scarlettthreads",
+    "kiara_irl",
+    "sunnyjo_",
+    "bwitwaifuu"
+]);
 
 // Dynamic querying th0ts based on stream title
 const KEYWORDS = [
     "18+",
     "+18",
     "sexy",
+    "sxy",
     "🔞",
     "🍑",
     "💦",
     "👅",
+    "🌶️",
+    "😈",
     "twerk",
     "phub",
     "bikini",
