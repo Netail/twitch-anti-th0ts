@@ -6,4 +6,4 @@ This chrome extension tries to blur the stream previews of these Twitch streamer
 
 ![Preview](https://raw.githubusercontent.com/Netail/twitch-anti-th0ts/refs/heads/main/assets/preview.png)
 
-Download can be found [in the chrome store](https://chromewebstore.google.com/detail/twitch-anti-th0ts/kgkijdnehafjigdkccmfhjkhoabjfiaf)
+Download can be found [in the Chrome store](https://chromewebstore.google.com/detail/twitch-anti-th0ts/kgkijdnehafjigdkccmfhjkhoabjfiaf) or [in the Firefox store](https://addons.mozilla.org/en-US/firefox/addon/twitch-anti-th0ts/)
