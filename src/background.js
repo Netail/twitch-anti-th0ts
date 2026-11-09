@@ -8,5 +8,5 @@ chrome.webRequest.onCompleted.addListener(
                 }
             })
     },
-    { urls: ["https://gql.twitch.tv/gql"] }
+    { urls: ["https://gql.twitch.tv/*"] }
 );

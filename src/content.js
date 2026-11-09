@@ -230,7 +230,10 @@ const USERS = new Set([
     "lovella",
     "cottontailva",
     "bunnyayu",
-    "moka"
+    "moka",
+    "vixxieart",
+    "lydiaviolet",
+    "yololaryy"
 ]);
 
 // Dynamic querying th0ts based on stream title
