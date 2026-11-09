@@ -210,7 +210,27 @@ const USERS = new Set([
     "alyssasorto",
     "dancetempt",
     "nabatakiya",
-    "sunlithours"
+    "sunlithours",
+    "imlibbyv",
+    "biluyoga",
+    "heysamarailoveu",
+    "rowshonara",
+    "bubbleswetlove",
+    "kanakokanade",
+    "nukapiee",
+    "strawberrytabby",
+    "ghost_of_tsushima_player",
+    "saratides_surf",
+    "rowshonara",
+    "larouge_asmr",
+    "lolaloom",
+    "koreanbunnydance",
+    "goddessfromheaven",
+    "sunsetechoe",
+    "lovella",
+    "cottontailva",
+    "bunnyayu",
+    "moka"
 ]);
 
 // Dynamic querying th0ts based on stream title
